@@ -38,7 +38,7 @@ kick(pitch, click, attack, decay, drive, gate) = x
 with {
   env = en.adsr(attack, decay, 0.0, 0.1, gate);
   pitchenv = en.adsr(0.005, click, 0.0, 0.1, gate);
-  clean = *(*(env, os.osc(1 + 4*pitchenv)), pitch);
+  clean = *(env, os.osc((1 + 4*pitchenv) * pitch));
 
   x = ma.tanh(*(clean, drive));
 };
