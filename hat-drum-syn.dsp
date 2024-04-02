@@ -43,7 +43,7 @@ with {
   m1 = cycle(2*pitch, 2*m2);
   m0 = cycle(pitch, 2*m1);
 
-  f = fi.resonbp(tone, 1.214, m0);
+  f = m0 : fi.resonbp(tone, 1.214, 1);
   env = en.adsr(attack, decay, 0.0, 0.1, gate);
   x = f * env;
   };
